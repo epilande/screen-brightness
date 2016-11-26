@@ -1,0 +1,16 @@
+{
+  "name": "screen-brightness",
+  "version": "0.0.1",
+  "description": "Analyze screen to get brightness",
+  "main": "index.js",
+  "author": "Emmanuel Pilande",
+  "engine-strict": true,
+  "engines": {
+    "node": ">= 6.x",
+    "npm": ">= 3.x"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "robotjs": "^0.4.5"
+  }
+}
