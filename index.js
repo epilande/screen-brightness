@@ -1,11 +1,29 @@
 const robot = require('robotjs');
+const { width, height } = robot.getScreenSize();
+const columns = 8;
+const points = 32;
+const columnSize = width / columns;
+const pointsPerColumn = Math.floor(points / columns);
+const pointDistance = height / pointsPerColumn;
+const samples = [];
 
-//Get a 100x100 screen capture starting at 0, 0.
-var img = robot.screen.capture(0, 0, 1, 1);
+let currentColumn = -1;
+let currentRow = 0;
 
-console.log(img.width)
+for (let i = 0; i < points; i++) {
+  if (i % pointsPerColumn === 0) {
+    currentRow = 0;
+    currentColumn++;
+  } else {
+    currentRow++;
+  }
 
-//Get pixel color at 50, 50.
-var hex = img.colorAt(0, 0);
-console.log(hex);
+  const sample = robot.getPixelColor(
+    (columnSize * currentColumn) + (columnSize / 2),
+    (pointDistance * currentRow) + (pointDistance / 2)
+  );
 
+  samples.push(sample);
+}
+
+console.log(samples)
