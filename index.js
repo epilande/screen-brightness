@@ -1,12 +1,13 @@
 const robot = require('robotjs');
+const tinycolor = require('tinycolor2');
 const { width, height } = robot.getScreenSize();
 const columns = 8;
 const points = 32;
 const columnSize = width / columns;
 const pointsPerColumn = Math.floor(points / columns);
 const pointDistance = height / pointsPerColumn;
-const samples = [];
 
+let screenBrightness = 0;
 let currentColumn = -1;
 let currentRow = 0;
 
@@ -23,7 +24,11 @@ for (let i = 0; i < points; i++) {
     (pointDistance * currentRow) + (pointDistance / 2)
   );
 
-  samples.push(sample);
+  const brightness = tinycolor(sample).getBrightness();
+
+  screenBrightness += brightness;
 }
 
-console.log(samples)
+const averageBrightness = screenBrightness / points;
+
+console.log(averageBrightness);
