@@ -1,10 +1,12 @@
 const robot = require('robotjs');
 const tinycolor = require('tinycolor2');
 
-module.exports = () => {
+module.exports = opts => {
+  opts = opts || {};
+
+  const columns = opts.columns || 8;
+  const points = opts.points || 32;
   const { width, height } = robot.getScreenSize();
-  const columns = 8;
-  const points = 32;
   const columnSize = width / columns;
   const pointsPerColumn = Math.floor(points / columns);
   const pointDistance = height / pointsPerColumn;
