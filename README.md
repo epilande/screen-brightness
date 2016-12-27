@@ -37,3 +37,8 @@ Type: `number`<br>
 Default: `32`
 
 Total points to take color samples from.
+
+
+## Related
+
+- [lux](https://github.com/epilande/lux) - Adaptive brightness based on screen contents
