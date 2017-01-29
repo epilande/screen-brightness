@@ -1,4 +1,6 @@
 # screen-brightness
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/epilande/screen-brightness.svg)](https://greenkeeper.io/)
 > Analyze screen contents to get brightness
 
 
